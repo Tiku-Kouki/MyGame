@@ -4,29 +4,60 @@ using UnityEngine;
 
 
 
-public class warpPoint : MonoBehaviour
+public class WarpPoint : MonoBehaviour
 {
     public Vector3 pos;
 
+    float height = 3.0f;
 
+    float fps = 60.0f;
 
-    // Start is called before the first frame update
-    void Start()
+    
+
+    Vector3 CalcLerpPoint(Vector3 p0, Vector3 p1, Vector3 p2, float t)
     {
-        
+        var a = Vector3.Lerp(p0, p1, t);
+        var b = Vector3.Lerp(p1, p2, t);
+        return Vector3.Lerp(a, b, t);
+    }
+
+    IEnumerator LerpThrow(GameObject target, Vector3 start, Vector3 half, Vector3 end, float duration)
+    {
+        float startTime = Time.timeSinceLevelLoad;
+        float rate = 0f;
+        while (true)
+        {
+            if (rate >= 1.0f)
+                yield break;
+
+            float diff = Time.timeSinceLevelLoad - startTime;
+            rate = diff / (duration / 60f);
+            target.transform.position = CalcLerpPoint(start, half, end, rate);
+
+            yield return null;
+        }
+    }
+
+    public void StartThrow(GameObject target, float height, Vector3 start, Vector3 end, float duration)
+    {
+        // íÜì_ÇãÅÇﬂÇÈ
+        Vector3 half = end - start * 0.50f + start;
+        half.y += Vector3.up.y + height;
+
+        StartCoroutine(LerpThrow(target, start, half, end, duration));
     }
 
     private void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.CompareTag("Player"))
         {
-            other.gameObject.transform.position = new Vector3(pos.x, pos.y, pos.z);
+            //other.gameObject.transform.position = new Vector3(pos.x, pos.y, pos.z);
+
+
+            StartThrow(other.gameObject, height, transform.position, pos, fps);
+
 
         }
     }
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 }

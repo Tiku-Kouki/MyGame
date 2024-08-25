@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -9,13 +10,23 @@ public class PlayerScript : MonoBehaviour
 
     private bool isBlock = true;
 
+    int jumpCount = 0;
+
     // Start is called before the first frame update
     void Start()
     {
         
     }
 
-    int jampCount = 0;
+    
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            jumpCount = 0;
+        }
+    }
 
     // Update is called once per frame
     void Update()
@@ -28,13 +39,13 @@ public class PlayerScript : MonoBehaviour
 
         // xé≤ï˚å¸ÇÃà⁄ìÆîÕàÕêßå¿
         pos.y = Mathf.Clamp(pos.y, -10, 10);
-        float moveSpeed = 3.0f;
+        float moveSpeed = 5.0f;
 
         Vector3 rayPosition = transform.position + new Vector3(0.0f, 0.8f, 0.0f);
 
         Ray ray = new Ray(rayPosition, Vector3.down);
 
-        float distance = 0.9f;
+        float distance = 0.35f;
 
         isBlock = Physics.Raycast(ray, distance);
 
@@ -42,16 +53,20 @@ public class PlayerScript : MonoBehaviour
         {
             Debug.DrawRay(rayPosition, Vector3.down * distance, Color.red);
 
-            jampCount = 0;
+            
         }
         else
         {
             Debug.DrawRay(rayPosition, Vector3.down * distance, Color.yellow);
 
-            
-
+            jumpCount = 1;
         }
 
+        if (GoalScript.isGameClear == true)
+        {
+            v.x = 0;
+            return;
+        }
 
         if (Input.GetKey(KeyCode.RightArrow))
         {
@@ -67,13 +82,13 @@ public class PlayerScript : MonoBehaviour
             v.x = 0;
         }
 
-        if (Input.GetKeyDown(KeyCode.Space)&&jampCount<5)
+        if (Input.GetKeyDown(KeyCode.Space)&&jumpCount<2)
         {
             v.y = 5;
 
-            jampCount++;
+            jumpCount++;
 
-            Debug.Log(jampCount);
+            Debug.Log(jumpCount);
 
         }
 

@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - warpPoint
+  - Ground
+  - Goal
   layers:
   - Default
   - TransparentFX
