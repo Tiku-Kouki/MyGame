@@ -11,6 +11,10 @@ public class SwitchScript : MonoBehaviour
 
     bool active;
 
+    public AudioSource switchAudio;
+
+    public DoorScript door;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,14 +28,31 @@ public class SwitchScript : MonoBehaviour
         if (active && transform.position.y > bottomY)
         {
             transform.position -= Vector3.up * speed * Time.deltaTime;
+
+
+            if(transform.position.y <= bottomY)
+            {
+                door.isOpen = true;
+
+                enabled = false;
+            }
+
+
         }
+
+
+
+
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (!active && other.CompareTag("Player"))
         {
+            switchAudio.Play();
             active = true;
+
+            
         }
     }
 }

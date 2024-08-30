@@ -13,7 +13,7 @@ public class GameManagerScript : MonoBehaviour
 
     public AudioSource mainAudio;
 
-   
+    private int time = 0;
 
     //public GameObject goalParticle;
 
@@ -23,6 +23,8 @@ public class GameManagerScript : MonoBehaviour
         Screen.SetResolution(1920, 1080, false);
 
         score = 0;
+
+        time = 0;
     }
 
     // Update is called once per frame
@@ -34,12 +36,15 @@ public class GameManagerScript : MonoBehaviour
         {
             mainAudio.Pause();
 
-            
+            time++;
 
-            if (Input.GetKeyDown(KeyCode.Space)||
-                Input.GetButtonDown("Jump"))
+            if (time > 240)
             {
-                SceneManager.LoadScene("SelectScene");
+                if (Input.GetKeyDown(KeyCode.Space) ||
+                    Input.GetButtonDown("Jump"))
+                {
+                    SceneManager.LoadScene("SelectScene");
+                }
             }
 
         }

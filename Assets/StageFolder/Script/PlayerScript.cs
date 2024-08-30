@@ -52,8 +52,8 @@ public class PlayerScript : MonoBehaviour
 
     }
 
+   
     
-
 
 
     // Update is called once per frame
@@ -65,8 +65,8 @@ public class PlayerScript : MonoBehaviour
 
         var pos = transform.position;
 
-        // x²•ûŒü‚ÌˆÚ“®”ÍˆÍ§ŒÀ
-        pos.y = Mathf.Clamp(pos.y, -10, 10);
+        // y²•ûŒü‚ÌˆÚ“®”ÍˆÍ§ŒÀ
+        pos.y = Mathf.Clamp(pos.y, -10, 100);
         
 
         Vector3 rayPosition = transform.position + new Vector3(0.0f, 0.5f, 0.0f);
@@ -81,6 +81,14 @@ public class PlayerScript : MonoBehaviour
         //RaycastHit hit;
 
         isBlock = Physics.Raycast(ray, distance);
+
+        if (transform.position.y <= -5.0f)
+        {
+            v = Vector3.zero;
+
+            transform.position = startPos;
+            return;
+        }
 
         if (isBlock)
         {
@@ -148,12 +156,7 @@ public class PlayerScript : MonoBehaviour
 
         }
 
-        if (transform.position.y < -9.0f)
-        {
-            v = Vector3.zero;
-
-            transform.position = startPos + Vector3.up * 10f;
-        }
+        
 
         rb.velocity = v;
         transform.position = pos;
