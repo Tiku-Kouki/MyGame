@@ -97,7 +97,7 @@ public class PlayerScript : MonoBehaviour
             
         }
 
-        if (GoalScript.isGameClear == true)
+        if (GoalScript.isGameClear)
         {
             v.x = 0;
 
@@ -107,7 +107,7 @@ public class PlayerScript : MonoBehaviour
         }
 
         
-        if(PauseManagerScript.isGamePouse == true) 
+        if(PauseManagerScript.isGamePouse) 
         {
             v.x = 0;
 
