@@ -12,7 +12,10 @@ public class WarpPoint : MonoBehaviour
 
     float fps = 60.0f;
 
+    public AudioSource warpAudio;
+
     
+
 
     Vector3 CalcLerpPoint(Vector3 p0, Vector3 p1, Vector3 p2, float t)
     {
@@ -53,11 +56,14 @@ public class WarpPoint : MonoBehaviour
         {
             //other.gameObject.transform.position = new Vector3(pos.x, pos.y, pos.z);
 
-
+            warpAudio.Play();
             StartThrow(other.gameObject, height, transform.position, pos, fps);
 
 
         }
     }
     
+    
+
+
 }

@@ -7,10 +7,12 @@ public class SelectPlayerScript : MonoBehaviour
     public Rigidbody rb;
 
     
+
+
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
 
@@ -38,14 +40,17 @@ public class SelectPlayerScript : MonoBehaviour
 
         Ray ray = new Ray(rayPosition, Vector3.down);
 
-        
+        float moveX = Input.GetAxis("Horizontal");
 
-        if (Input.GetKey(KeyCode.RightArrow))
+        float moveY = Input.GetAxis("Vertical");
+
+
+        if (Input.GetKey(KeyCode.RightArrow)||moveX>0)
         {
             v.x = moveSpeed;
         }
         else
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.LeftArrow)|| moveX<0)
         {
             v.x = -moveSpeed;
         }
@@ -54,12 +59,12 @@ public class SelectPlayerScript : MonoBehaviour
             v.x = 0;
         }
 
-        if (Input.GetKey(KeyCode.UpArrow))
+        if (Input.GetKey(KeyCode.UpArrow) || moveY > 0)
         {
             v.z = moveSpeed;
         }
         else
-        if (Input.GetKey(KeyCode.DownArrow))
+        if (Input.GetKey(KeyCode.DownArrow) || moveY<0)
         {
             v.z = -moveSpeed;
         }
@@ -68,11 +73,12 @@ public class SelectPlayerScript : MonoBehaviour
             v.z = 0;
         }
 
+        
+        
 
 
 
-
-        rb.velocity = v;
+            rb.velocity = v;
         transform.position = pos;
     }
 }

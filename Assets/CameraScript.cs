@@ -19,8 +19,12 @@ public class CameraScript : MonoBehaviour
         var playerPosition = player.transform.position;
         var position = transform.position;
         position.x = playerPosition.x;
-        position.y = playerPosition.y + 2;
-        // position.z = playerPosition.z - 8;
+        if(playerPosition.y > -5)
+        {
+            position.y = playerPosition.y + 2;
+        } 
+       
+        
         transform.position = position;
 
     }
