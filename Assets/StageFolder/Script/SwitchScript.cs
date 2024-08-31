@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class SwitchScript : MonoBehaviour
 {
-    public float bottomY;
-
     
     float speed = 0.5f;
 
@@ -13,24 +11,32 @@ public class SwitchScript : MonoBehaviour
 
     public AudioSource switchAudio;
 
+    Vector3 startPos;
+
+    float afterPosY;
+
     public DoorScript door;
 
     // Start is called before the first frame update
     void Start()
     {
+        startPos = transform.position;
+
         
+
+        afterPosY = startPos.y - 0.1f;
     }
 
     
 
     void Update()
     {
-        if (active && transform.position.y > bottomY)
+        if (active && transform.position.y > afterPosY)
         {
             transform.position -= Vector3.up * speed * Time.deltaTime;
 
 
-            if(transform.position.y <= bottomY)
+            if(transform.position.y <= afterPosY)
             {
                 door.isOpen = true;
 

@@ -84,7 +84,7 @@ public class PlayerScript : MonoBehaviour
 
         if (transform.position.y <= -5.0f)
         {
-            v = Vector3.zero;
+            
 
             transform.position = startPos;
             return;
