@@ -10,7 +10,7 @@ public class SelectScript : MonoBehaviour
 
     public string scene;
 
-    public static bool isGame = false;
+    
 
     bool isCollison = false;
 
@@ -18,9 +18,7 @@ public class SelectScript : MonoBehaviour
 
     private void OnCollisionStay(Collision other)
     {
-        
-
-        if (other.gameObject.CompareTag("Player"))
+         if (other.gameObject.CompareTag("Player"))
         {
             StageText.SetActive(true);
 

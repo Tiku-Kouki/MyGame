@@ -16,7 +16,7 @@ public class WarpPoint : MonoBehaviour
 
     
 
-
+    // ê¸ä‘ï‚äÆ
     Vector3 CalcLerpPoint(Vector3 p0, Vector3 p1, Vector3 p2, float t)
     {
         var a = Vector3.Lerp(p0, p1, t);
@@ -24,6 +24,7 @@ public class WarpPoint : MonoBehaviour
         return Vector3.Lerp(a, b, t);
     }
 
+    // ÉRÉãÅ[É`Éì
     IEnumerator LerpThrow(GameObject target, Vector3 start, Vector3 half, Vector3 end, float duration)
     {
         float startTime = Time.timeSinceLevelLoad;
@@ -54,9 +55,10 @@ public class WarpPoint : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            //other.gameObject.transform.position = new Vector3(pos.x, pos.y, pos.z);
+            
 
             warpAudio.Play();
+           
             StartThrow(other.gameObject, height, transform.position, pos, fps);
 
 

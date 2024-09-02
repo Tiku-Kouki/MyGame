@@ -22,8 +22,6 @@ public class SwitchScript : MonoBehaviour
     {
         startPos = transform.position;
 
-        
-
         afterPosY = startPos.y - 0.1f;
     }
 
@@ -43,12 +41,7 @@ public class SwitchScript : MonoBehaviour
                 enabled = false;
             }
 
-
         }
-
-
-
-
     }
 
     private void OnTriggerEnter(Collider other)
