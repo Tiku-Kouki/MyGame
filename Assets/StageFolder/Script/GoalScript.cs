@@ -20,10 +20,13 @@ public class GoalScript : MonoBehaviour
     {
         if (isGameClear)
         {
+           
             DoorInText.SetActive(false);
 
             return;
         }
+
+
     }
 
 

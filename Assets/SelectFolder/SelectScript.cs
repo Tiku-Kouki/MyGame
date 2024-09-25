@@ -10,7 +10,7 @@ public class SelectScript : MonoBehaviour
 
     public string scene;
 
-    
+    public ShaterScript shater;
 
     bool isCollison = false;
 
@@ -38,14 +38,26 @@ public class SelectScript : MonoBehaviour
 
     private void Update()
     {
+        if(isCollison&& shater.closeTimer >= 700)
+        {
+            StageText.SetActive(false);
+            SceneManager.LoadScene(scene);
+        }
+
+
+
+
         if ( (Input.GetKeyDown(KeyCode.Space) ||
                 Input.GetKeyDown("joystick button 0"))&&
                 isCollison)
         {
             selectAudio.Play();
-            SceneManager.LoadScene(scene);
+
+            ShaterScript.isShaterOpen = false;
         }
 
+
+        
     }
 
     

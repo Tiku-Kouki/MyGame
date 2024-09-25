@@ -13,6 +13,8 @@ public class GameManagerScript : MonoBehaviour
 
     public AudioSource mainAudio;
 
+    public ShaterScript shater;
+
     private int time = 0;
 
     //public GameObject goalParticle;
@@ -43,11 +45,20 @@ public class GameManagerScript : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.Space) ||
                     Input.GetButtonDown("Jump"))
                 {
-                    SceneManager.LoadScene("SelectScene");
+                    ShaterScript.isShaterOpen = false;
                 }
             }
 
         }
+
+        if (shater.closeTimer>=370&& GoalScript.isGameClear)
+        {
+            
+
+            SceneManager.LoadScene("SelectScene");
+        }
+        
+
 
         if (score >=4)
         {

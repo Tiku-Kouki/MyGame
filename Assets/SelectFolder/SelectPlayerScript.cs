@@ -44,6 +44,11 @@ public class SelectPlayerScript : MonoBehaviour
 
         float moveY = Input.GetAxis("Vertical");
 
+        if (!ShaterScript.isShaterOpen)
+        {
+            return;
+        }
+
 
         if (Input.GetKey(KeyCode.RightArrow)||moveX>0)
         {
