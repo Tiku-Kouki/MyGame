@@ -37,15 +37,7 @@ public class ShaterScript : MonoBehaviour
 
             closeTimer += 1;
         }
-        if (Input.GetKeyDown(KeyCode.Z))
-        {
-            isShaterOpen = false;
-        }
-
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            isShaterOpen = true;
-        }
+       
 
     }
 
