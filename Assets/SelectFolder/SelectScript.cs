@@ -38,9 +38,9 @@ public class SelectScript : MonoBehaviour
 
     private void Update()
     {
-        if(isCollison&& shater.closeTimer >= 700)
+        if(isCollison&& shater.closeTimer >= 360)
         {
-            StageText.SetActive(false);
+            
             SceneManager.LoadScene(scene);
         }
 
@@ -52,7 +52,7 @@ public class SelectScript : MonoBehaviour
                 isCollison)
         {
             selectAudio.Play();
-
+            StageText.SetActive(false);
             ShaterScript.isShaterOpen = false;
         }
 
