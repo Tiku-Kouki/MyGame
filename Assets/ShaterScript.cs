@@ -12,7 +12,7 @@ public class ShaterScript : MonoBehaviour
 
     public int closeTimer;
 
-    float speed = 0.005f;
+    float speed = 0.01f;
 
     public float downPos;
     public float upPos;

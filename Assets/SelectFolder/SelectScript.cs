@@ -20,10 +20,15 @@ public class SelectScript : MonoBehaviour
     {
          if (other.gameObject.CompareTag("Player"))
         {
-            StageText.SetActive(true);
-
+            if (ShaterScript.isShaterOpen)
+            {
+                StageText.SetActive(true);
+            }
+            else
+            {
+                StageText.SetActive(false);
+            }
             isCollison = true;
-           
         }
     }
 
@@ -31,14 +36,17 @@ public class SelectScript : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            StageText.SetActive(false);
+            
+                StageText.SetActive(false);
+            
+            
             isCollison = false;
         }
     }
 
     private void Update()
     {
-        if(isCollison&& shater.closeTimer >= 360)
+        if(isCollison&& shater.closeTimer >= 180)
         {
             
             SceneManager.LoadScene(scene);

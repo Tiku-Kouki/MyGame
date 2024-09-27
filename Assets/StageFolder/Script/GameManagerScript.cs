@@ -51,10 +51,9 @@ public class GameManagerScript : MonoBehaviour
 
         }
 
-        if (shater.closeTimer>=370&& GoalScript.isGameClear)
+        if (shater.closeTimer>=180&& GoalScript.isGameClear)
         {
             
-
             SceneManager.LoadScene("SelectScene");
         }
         
