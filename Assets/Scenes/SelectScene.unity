@@ -2295,7 +2295,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StageText: {fileID: 352526520}
-  scene: SampleScene
+  scene: Stage1Scene
   shater: {fileID: 828872361}
   selectAudio: {fileID: 1856301806}
 --- !u!65 &1856301802

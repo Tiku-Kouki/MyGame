@@ -50,6 +50,9 @@ public class PlayerScript : MonoBehaviour
             jumpCount = 0;
         }
 
+        
+
+
     }
 
    

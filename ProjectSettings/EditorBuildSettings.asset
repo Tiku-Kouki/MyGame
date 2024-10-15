@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/SelectScene.unity
     guid: 5c3b18b2c5ba75b4eb532df3ebc81c5e
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
+    path: Assets/Scenes/Stage1Scene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
     path: Assets/Scenes/Stage2Scene.unity
