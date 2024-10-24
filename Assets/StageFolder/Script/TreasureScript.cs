@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+//　お宝のスクリプト
+
 
 public class TreasureScript : MonoBehaviour
 {
@@ -13,6 +15,7 @@ public class TreasureScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //常に回転
         transform.Rotate(0.5f, 0.0f, 0.0f);
 
 

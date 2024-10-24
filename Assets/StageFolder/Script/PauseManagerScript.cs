@@ -2,13 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+//ポーズ画面
 
 public class PauseManagerScript : MonoBehaviour
 {
+    // ポーズ画面のテキスト
     public GameObject GamePauseText;
-
+    // ポーズ画面の選択テキスト
     public GameObject SelectText;
-
+    //　ポーズ画面かどうか
     public static bool isGamePouse = false;
 
     
@@ -22,7 +24,7 @@ public class PauseManagerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        //　ボタンを押したとき表示される
         if ((Input.GetKeyDown(KeyCode.X)||
             Input.GetKeyDown(KeyCode.Joystick1Button7))
             &&!isGamePouse)
@@ -45,6 +47,7 @@ public class PauseManagerScript : MonoBehaviour
 
         if (isGamePouse)
         {
+            //セレクト画面に戻る
             if (Input.GetKeyDown(KeyCode.Joystick1Button2))
             {
                 SceneManager.LoadScene("SelectScene");

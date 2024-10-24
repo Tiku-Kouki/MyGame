@@ -27,7 +27,7 @@ public class DoorScript : MonoBehaviour
     void Update()
     {
 
-        // Up
+        // Up�̏ꍇ
         if (upOrDown)
         {
             if (isOpen && transform.position.y < openY)
@@ -40,7 +40,7 @@ public class DoorScript : MonoBehaviour
 
             }
         }
-        //Down
+        //Down�̏ꍇ
         else if(!upOrDown)
         {
             if (isOpen && transform.position.y > openY)

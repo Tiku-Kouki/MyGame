@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+//タイトルのカメラ
+
 
 public class TitleCameraScript : MonoBehaviour
 {
@@ -15,7 +17,7 @@ public class TitleCameraScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        //カメラの固定
         var titlePosition = title.transform.position;
         var position = transform.position;
         position.x = titlePosition.x;

@@ -1,13 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+// セレクト画面のプレイヤー移動
 
 public class SelectPlayerScript : MonoBehaviour
 {
+    // プレイヤーのRigidbody
     public Rigidbody rb;
-
-    
-
 
     // Start is called before the first frame update
     void Start()
@@ -15,17 +14,12 @@ public class SelectPlayerScript : MonoBehaviour
         
     }
 
-
-
-   
-
     // Update is called once per frame
     void Update()
     {
+        // プレイヤーのRigidbodyのvelocityを入れる
         Vector3 v = rb.velocity;
-
-
-
+        //プレイヤーのpositionを入れる
         var pos = transform.position;
 
         // x軸方向の移動範囲制限
@@ -33,15 +27,12 @@ public class SelectPlayerScript : MonoBehaviour
         // ｚ軸方向の移動範囲制限
         pos.z = Mathf.Clamp(pos.z, -5.5f, 5.5f);
 
-
+        //プレイヤーの移動速度
         float moveSpeed = 5.0f;
 
-        Vector3 rayPosition = transform.position + new Vector3(0.0f, 0.8f, 0.0f);
-
-        Ray ray = new Ray(rayPosition, Vector3.down);
-
+       
+        //ゲームパッドのスティック入力受け取り
         float moveX = Input.GetAxis("Horizontal");
-
         float moveY = Input.GetAxis("Vertical");
 
         if (!ShaterScript.isShaterOpen)
@@ -49,7 +40,7 @@ public class SelectPlayerScript : MonoBehaviour
             return;
         }
 
-
+        //　プレイヤーの移動
         if (Input.GetKey(KeyCode.RightArrow)||moveX>0)
         {
             v.x = moveSpeed;
@@ -78,12 +69,7 @@ public class SelectPlayerScript : MonoBehaviour
             v.z = 0;
         }
 
-        
-        
-
-
-
-            rb.velocity = v;
+        rb.velocity = v;
         transform.position = pos;
     }
 }

@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+//　stageのプレイヤーの動き
+
 
 public class PlayerScript : MonoBehaviour
 {
