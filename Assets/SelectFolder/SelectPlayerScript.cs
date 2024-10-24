@@ -30,7 +30,7 @@ public class SelectPlayerScript : MonoBehaviour
 
         // x²•ûŒü‚ÌˆÚ“®”ÍˆÍ§ŒÀ
         pos.x = Mathf.Clamp(pos.x, -9.5f, 9.5f);
-
+        // ‚š²•ûŒü‚ÌˆÚ“®”ÍˆÍ§ŒÀ
         pos.z = Mathf.Clamp(pos.z, -5.5f, 5.5f);
 
 

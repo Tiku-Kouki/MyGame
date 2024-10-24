@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//セレクト画面のカメラの動き
 
 public class SelectCameraScript : MonoBehaviour
 {
@@ -18,9 +18,11 @@ public class SelectCameraScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        //　プレイヤーの位置
         var playerPosition = player.transform.position;
+        //　カメラの位置
         var position = transform.position;
+        //カメラがプレイヤーに追従
         position.x = playerPosition.x;
         position.y = playerPosition.y +1;
          position.z = playerPosition.z - 5;

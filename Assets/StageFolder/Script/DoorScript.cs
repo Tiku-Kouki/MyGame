@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class DoorScript : MonoBehaviour
 {
+    //初めのＹの位置
     float fastY;
-
+    //　上か下どっちに移動か
     public bool upOrDown = true;
-
+    //開けた後の最終位置
     public float openY;
-
+    //開けるスピード
     float speed = 1.0f;
-
+    //　あいているかどうか
     public bool isOpen;
 
     // Start is called before the first frame update

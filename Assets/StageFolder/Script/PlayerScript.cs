@@ -6,18 +6,19 @@ using UnityEngine;
 
 public class PlayerScript : MonoBehaviour
 {
+    //Rigidbody
     public Rigidbody rb;
-
+    //ブロックに触れているか
     private bool isBlock = true;
-
+    //ジャンプした後の音
     public AudioSource jumpAudio;
-
+    //お宝入手の音
     public AudioSource coinAudio;
-
+    //ジャンプした回数
     int jumpCount = 0;
-
+    // 移動スピード
     float moveSpeed = 5.0f;
-
+    //初期の位置
     Vector3 startPos;
 
     // Start is called before the first frame update
@@ -29,7 +30,7 @@ public class PlayerScript : MonoBehaviour
 
     
     
-
+    //触れた時
     private void OnCollisionEnter(Collision other)
     {
         
@@ -39,12 +40,13 @@ public class PlayerScript : MonoBehaviour
             other.gameObject.SetActive(false);
 
             coinAudio.Play();
-
+            //得点に追加
             GameManagerScript.score += 1;
 
             
         }
 
+        //Groundのオブジェクトに触れたらジャンプリセット
         if (other.gameObject.CompareTag("Ground"))
         {
             jumpCount = 0;
@@ -62,18 +64,15 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //　rbの一時保存
         Vector3 v = rb.velocity;
-
-        
-
+        //　positionの一時保存
         var pos = transform.position;
 
-        // y軸方向の移動範囲制限
-        pos.y = Mathf.Clamp(pos.y, -10, 100);
+       
         
-
+        //足元の位置確認に使用
         Vector3 rayPosition = transform.position + new Vector3(0.0f, 0.5f, 0.0f);
-
         Ray ray = new Ray(rayPosition, transform.up * -1);
 
         float distance = 0.35f;
@@ -82,32 +81,29 @@ public class PlayerScript : MonoBehaviour
         float moveX = Input.GetAxis("Horizontal");
 
         //RaycastHit hit;
-
         isBlock = Physics.Raycast(ray, distance);
 
+
+        // 穴に落ちた時初期位置に戻る
         if (transform.position.y <= -5.0f)
         {
-            
-
             transform.position = startPos;
             return;
         }
 
+        //isBlockが反応してるかどうか
         if (isBlock)
         {
             Debug.DrawRay(rayPosition, Vector3.down * distance, Color.red);
-
-            
             Debug.Log(jumpCount);
         }
         else if
         (!isBlock)
         {
             Debug.DrawRay(rayPosition, Vector3.down * distance, Color.yellow);
-
-            
         }
 
+        //ゲームクリアした後硬直
         if (GoalScript.isGameClear)
         {
             v.x = 0;
@@ -117,8 +113,8 @@ public class PlayerScript : MonoBehaviour
             return;
         }
 
-        
-        if(PauseManagerScript.isGamePouse) 
+        //ポーズ画面中移動制限
+        if(PauseManagerScript.isGamePouse|| !StartScript.isStart) 
         {
             v.x = 0;
 
@@ -128,6 +124,7 @@ public class PlayerScript : MonoBehaviour
             return;
         }
 
+        //プレイヤーの移動
         if (Input.GetKey(KeyCode.RightArrow) ||
             moveX > 0)
         {
@@ -143,7 +140,7 @@ public class PlayerScript : MonoBehaviour
         {
             v.x = 0;
         }
-
+        //プレイヤー2回までジャンプ可能
         if ((Input.GetKeyDown(KeyCode.Space)||
             Input.GetKeyDown("joystick button 0"))
             &&jumpCount<2)

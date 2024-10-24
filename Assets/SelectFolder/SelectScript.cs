@@ -2,24 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+//セレクトステージのスクリプト
 
 public class SelectScript : MonoBehaviour
 {
+    //どのステージかのステージのテキスト
     public GameObject StageText;
-
+    //移動するscene
     public string scene;
-
+    //画面移動のシャッター
     public ShaterScript shater;
-
+    //当たっているかどうか
     bool isCollison = false;
-
+    //決定したときの音
     public AudioSource selectAudio;
 
+    //触れているとき
     private void OnCollisionStay(Collision other)
     {
          if (other.gameObject.CompareTag("Player"))
         {
+
+            //シャッターが開いているかで表示変更
             if (ShaterScript.isShaterOpen)
             {
                 StageText.SetActive(true);
@@ -31,12 +35,12 @@ public class SelectScript : MonoBehaviour
             isCollison = true;
         }
     }
-
+    /// 離れた時
     private void OnCollisionExit(Collision other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            
+            //非表示にする
                 StageText.SetActive(false);
             
             
@@ -46,7 +50,8 @@ public class SelectScript : MonoBehaviour
 
     private void Update()
     {
-        if(isCollison&& shater.closeTimer >= 180)
+        //isCollisonがtrueで一定時間たったらLoadScene
+        if (isCollison&& shater.closeTimer >= 180)
         {
             
             SceneManager.LoadScene(scene);
@@ -54,7 +59,7 @@ public class SelectScript : MonoBehaviour
 
 
 
-
+        //ステージ決定とシャッターを下す
         if ( (Input.GetKeyDown(KeyCode.Space) ||
                 Input.GetKeyDown("joystick button 0"))&&
                 isCollison)

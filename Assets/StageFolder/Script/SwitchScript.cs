@@ -1,20 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+//スイッチのスクリプト
 
 public class SwitchScript : MonoBehaviour
 {
-    
+    //沈むスピード
     float speed = 0.5f;
-
+    //　スイッチONであるか
     bool active;
 
     public AudioSource switchAudio;
-
+    //初めの位置
     Vector3 startPos;
-
+    //最大沈む位置
     float afterPosY;
-
+    //　ドアと連携させる
     public DoorScript door;
 
     // Start is called before the first frame update
@@ -29,12 +30,13 @@ public class SwitchScript : MonoBehaviour
 
     void Update()
     {
+        // activeがtrueの時下に沈む
         if (active && transform.position.y > afterPosY)
         {
             transform.position -= Vector3.up * speed * Time.deltaTime;
 
-
-            if(transform.position.y <= afterPosY)
+            //一定以上沈んだらdoor.isOpen をtrueにする;
+            if (transform.position.y <= afterPosY)
             {
                 door.isOpen = true;
 
@@ -44,6 +46,7 @@ public class SwitchScript : MonoBehaviour
         }
     }
 
+    // 上から押されたときactiveをtrue
     private void OnTriggerEnter(Collider other)
     {
         if (!active && other.CompareTag("Player"))

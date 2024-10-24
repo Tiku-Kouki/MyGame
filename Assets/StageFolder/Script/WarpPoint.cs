@@ -6,10 +6,11 @@ using UnityEngine;
 
 public class WarpPoint : MonoBehaviour
 {
+    // 移動させる位置
     public Vector3 pos;
-
+    //　高さ
     float height = 3.0f;
-
+    //　どれくらいで移動するか
     float fps = 60.0f;
 
     public AudioSource warpAudio;
@@ -41,7 +42,7 @@ public class WarpPoint : MonoBehaviour
             yield return null;
         }
     }
-
+    //指定位置に弧を描いて移動する
     public void StartThrow(GameObject target, float height, Vector3 start, Vector3 end, float duration)
     {
         // 中点を求める
@@ -58,7 +59,7 @@ public class WarpPoint : MonoBehaviour
             
 
             warpAudio.Play();
-           
+           //指定位置に弧を描いて移動
             StartThrow(other.gameObject, height, transform.position, pos, fps);
 
 
