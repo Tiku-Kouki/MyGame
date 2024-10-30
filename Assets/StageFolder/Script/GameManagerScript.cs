@@ -13,7 +13,7 @@ public class GameManagerScript : MonoBehaviour
     //得点の表示
     public TextMeshProUGUI scoreText;
     //得点の一定以上撮った時のランク
-    public TextMeshProUGUI RankText;
+    public TextMeshProUGUI rankText;
     //背景BGM
     public AudioSource mainAudio;
     //シャッター
@@ -40,13 +40,22 @@ public class GameManagerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        string Rank = "C";
+        string rank = "C";
 
-        if (StartScript.isStart&& !isPlayMusic)
+        if (StartScript.isStart&& !isPlayMusic&& !GoalScript.isGameClear)
         {
             mainAudio.Play();
             isPlayMusic = true;
         }
+
+        if (GameOverScript.isGameOver)
+        {
+            mainAudio.Pause();
+            mainAudio.time = 0;
+            isPlayMusic = false;
+        }
+        
+
 
 
         //ゴールしたとき
@@ -81,31 +90,31 @@ public class GameManagerScript : MonoBehaviour
         if (!StartScript.isStart|| !ShaterScript.isShaterOpen)
         {
             scoreText.color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
-            RankText.color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
+            rankText.color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
 
         }
         else if(!GoalScript.isGameClear) 
         {
             scoreText.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
-            RankText.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+            rankText.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
         }
 
 
         //一定以上の時ランク変動
         if (score >=4)
         {
-            Rank = "A";
+            rank = "A";
         }
         else if (score > 1 && score < 4)
         {
-            Rank = "B";
+            rank = "B";
         }
         else if (score <= 1)
         {
-            Rank = "C";
+            rank = "C";
         }
         //ランクと得点のそれぞれの表示
-        RankText.text = "RANK " + Rank;
+        rankText.text = "RANK " + rank;
 
         scoreText.text = "SCORE " + score;
 

@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class SelectScript : MonoBehaviour
 {
     //どのステージかのステージのテキスト
-    public GameObject StageText;
+    public GameObject stageText;
     //移動するscene
     public string scene;
     //画面移動のシャッター
@@ -26,11 +26,11 @@ public class SelectScript : MonoBehaviour
             //シャッターが開いているかで表示変更
             if (ShaterScript.isShaterOpen)
             {
-                StageText.SetActive(true);
+                stageText.SetActive(true);
             }
             else
             {
-                StageText.SetActive(false);
+                stageText.SetActive(false);
             }
             isCollison = true;
         }
@@ -41,7 +41,7 @@ public class SelectScript : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             //非表示にする
-                StageText.SetActive(false);
+                stageText.SetActive(false);
             
             
             isCollison = false;
@@ -65,7 +65,7 @@ public class SelectScript : MonoBehaviour
                 isCollison)
         {
             selectAudio.Play();
-            StageText.SetActive(false);
+            stageText.SetActive(false);
             ShaterScript.isShaterOpen = false;
         }
 

@@ -42,7 +42,7 @@ public class ShaterScript : MonoBehaviour
 
             closeTimer += 1;
         }
-        //Debug.Log(isUp);
+        
 
     }
 
@@ -88,6 +88,8 @@ public class ShaterScript : MonoBehaviour
             
 
         }
+        closeTimer = 0;
+
     }
 
 }

@@ -5,9 +5,9 @@ using UnityEngine;
 public class GoalScript : MonoBehaviour
 {
     //ゲームクリアのテキスト
-    public GameObject GameClearText;
+    public GameObject gameClearText;
     //ゴールのドアに触れているとき表示のテキスト
-    public GameObject DoorInText;
+    public GameObject doorInText;
     //　クリアしたかの変数
     public static bool isGameClear = false;
     //　ゴールした後の音
@@ -26,13 +26,13 @@ public class GoalScript : MonoBehaviour
         if (isGameClear)
         {
             //ゴールした後テキストを消す
-            DoorInText.SetActive(false);
+            doorInText.SetActive(false);
             return;
         }
 
         if (GameManagerScript.eraseGoalText)
         {
-            GameClearText.SetActive(false);
+            gameClearText.SetActive(false);
         }
 
 
@@ -48,7 +48,7 @@ public class GoalScript : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             //テキスト表示
-            DoorInText.SetActive(true);
+            doorInText.SetActive(true);
 
             //　上入力をしたら
             if ((Input.GetKey(KeyCode.UpArrow)||
@@ -57,7 +57,7 @@ public class GoalScript : MonoBehaviour
             {
                 //ゴール判定
                 goalAudio.Play();
-                GameClearText.SetActive(true);
+                gameClearText.SetActive(true);
                 isGameClear = true;
             }
         }
@@ -68,7 +68,7 @@ public class GoalScript : MonoBehaviour
         // プレイヤーがゴールから離れた時
         if (other.gameObject.CompareTag("Player"))
         {
-            DoorInText.SetActive(false);
+            doorInText.SetActive(false);
         }
     }
 

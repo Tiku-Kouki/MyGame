@@ -23,6 +23,9 @@ public class PlayerScript : MonoBehaviour
     //‰Šú‚ÌˆÊ’u
     Vector3 startPos;
 
+    
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -59,8 +62,11 @@ public class PlayerScript : MonoBehaviour
 
     }
 
-   
-    
+
+    public void Reset()
+    {
+        transform.position = startPos;
+    }
 
 
     // Update is called once per frame
@@ -85,13 +91,20 @@ public class PlayerScript : MonoBehaviour
         //RaycastHit hit;
         isBlock = Physics.Raycast(ray, distance);
 
+        
 
         // ŒŠ‚É—‚¿‚½‰ŠúˆÊ’u‚É–ß‚é
-        if (transform.position.y <= -5.0f)
+        if (transform.position.y <= -10.0f&& !GameOverScript.isGameOver&& !GameOverScript.isReset)
         {
-            transform.position = startPos;
+            GameOverScript.isGameOver = true;
+            
+        }
+
+        if (GameOverScript.isGameOver|| GameOverScript.isReset)
+        {
             return;
         }
+
 
         //isBlock‚ª”½‰‚µ‚Ä‚é‚©‚Ç‚¤‚©
         if (isBlock)

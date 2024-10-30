@@ -7,9 +7,9 @@ using UnityEngine.SceneManagement;
 public class PauseManagerScript : MonoBehaviour
 {
     // ポーズ画面のテキスト
-    public GameObject GamePauseText;
+    public GameObject gamePauseText;
     // ポーズ画面の選択テキスト
-    public GameObject SelectText;
+    public GameObject selectText;
     //　ポーズ画面かどうか
     public static bool isGamePouse = false;
 
@@ -29,8 +29,8 @@ public class PauseManagerScript : MonoBehaviour
             Input.GetKeyDown(KeyCode.Joystick1Button7))
             &&!isGamePouse)
         {
-            GamePauseText.SetActive(true);
-            SelectText.SetActive(true);
+            gamePauseText.SetActive(true);
+            selectText.SetActive(true);
 
             isGamePouse = true;
         }else if ((Input.GetKeyDown(KeyCode.X) ||
@@ -38,8 +38,8 @@ public class PauseManagerScript : MonoBehaviour
             Input.GetKeyDown(KeyCode.Joystick1Button0))
             && isGamePouse)
         {
-            GamePauseText.SetActive(false);
-            SelectText.SetActive(false);
+            gamePauseText.SetActive(false);
+            selectText.SetActive(false);
 
             isGamePouse = false;
 
