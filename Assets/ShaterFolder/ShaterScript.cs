@@ -26,6 +26,8 @@ public class ShaterScript : MonoBehaviour
     {
         isShaterOpen = true;
         closeTimer = 0;
+
+        shater.gameObject.GetComponent<Image>().color= new Color(1.0f, 1.0f, 1.0f, 1.0f);
     }
     void Update()
     {
