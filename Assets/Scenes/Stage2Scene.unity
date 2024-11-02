@@ -10190,7 +10190,15 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 24263104}
     - target: {fileID: 7827048756767287471, guid: 6945e774154679547872d9450d0fc545, type: 3}
+      propertyPath: doorInText
+      value: 
+      objectReference: {fileID: 24263104}
+    - target: {fileID: 7827048756767287471, guid: 6945e774154679547872d9450d0fc545, type: 3}
       propertyPath: GameClearText
+      value: 
+      objectReference: {fileID: 1560927192}
+    - target: {fileID: 7827048756767287471, guid: 6945e774154679547872d9450d0fc545, type: 3}
+      propertyPath: gameClearText
       value: 
       objectReference: {fileID: 1560927192}
     m_RemovedComponents: []

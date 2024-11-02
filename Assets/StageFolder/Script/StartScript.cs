@@ -80,7 +80,7 @@ public class StartScript : MonoBehaviour
 
             }
 
-            GoText.transform.position= GoText.transform.position - new Vector3(50.0f,0.0f,0.0f);
+            GoText.transform.position= GoText.transform.position - new Vector3(30.0f,0.0f,0.0f);
 
             
         }
