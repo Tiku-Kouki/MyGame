@@ -56,7 +56,8 @@ public class GameOverScript : MonoBehaviour
                 isSet = true;
             }
 
-        }else if (!isGameOver)
+        }else 
+        if (!isGameOver)
         {
             IrisUnmask.transform.localScale = new Vector3(30.0f, 30.0f, 0.0f);
             if (GameOverText.color.a >= 0.0f)
@@ -118,7 +119,7 @@ public class GameOverScript : MonoBehaviour
         {
             
             isGameOver = false;
-            player.Reset();
+            
             isReset = false;
             ShaterScript.isShaterOpen = true;
         }

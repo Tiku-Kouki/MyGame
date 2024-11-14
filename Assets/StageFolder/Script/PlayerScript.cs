@@ -100,6 +100,11 @@ public class PlayerScript : MonoBehaviour
             
         }
 
+        if (GameOverScript.isReset)
+        {
+            transform.position = startPos;
+        }
+
         if (GameOverScript.isGameOver|| GameOverScript.isReset)
         {
             return;
