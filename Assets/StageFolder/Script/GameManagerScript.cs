@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
-using Unity.VisualScripting;
+using Rank;
+
 //ステージのGameManager
 
 public class GameManagerScript : MonoBehaviour
@@ -21,9 +22,14 @@ public class GameManagerScript : MonoBehaviour
     //ゴールでの待機時間計算
     private int time = 0;
 
+    public int BRankLine = 2, ARankLine = 4;
+
+
     private bool isPlayMusic = false;
 
     public static bool eraseGoalText = false;
+
+    
 
     //public GameObject goalParticle;
 
@@ -40,7 +46,9 @@ public class GameManagerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        string rank = "C";
+        string rank = Rank.RankScript.C;
+
+        
 
         if (StartScript.isStart&& !isPlayMusic&& !GoalScript.isGameClear)
         {
@@ -101,15 +109,15 @@ public class GameManagerScript : MonoBehaviour
 
 
         //一定以上の時ランク変動
-        if (score >=4)
+        if (score >= ARankLine)
         {
-            rank = "A";
+            rank = Rank.RankScript.A;
         }
-        else if (score > 1 && score < 4)
+        else if (score >= BRankLine && score < ARankLine)
         {
             rank = "B";
         }
-        else if (score <= 1)
+        else if (score < BRankLine)
         {
             rank = "C";
         }

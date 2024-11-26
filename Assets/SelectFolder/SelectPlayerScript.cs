@@ -3,6 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 // セレクト画面のプレイヤー移動
 
+namespace Kamata
+{
+
+}
+
+
 public class SelectPlayerScript : MonoBehaviour
 {
     // プレイヤーのRigidbody

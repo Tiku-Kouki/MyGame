@@ -19,11 +19,11 @@ public class PlayerScript : MonoBehaviour
     //ジャンプした回数
     int jumpCount = 0;
     // 移動スピード
-    float moveSpeed = 5.0f;
+    static float moveSpeed = 5.0f;
     //初期の位置
     Vector3 startPos;
 
-    
+    public GameObject bombParticle;
 
 
     // Start is called before the first frame update
@@ -48,7 +48,8 @@ public class PlayerScript : MonoBehaviour
             //得点に追加
             GameManagerScript.score += 1;
 
-            
+            Instantiate(bombParticle, transform.position, Quaternion.identity);
+
         }
 
         //Groundのオブジェクトに触れたらジャンプリセット
