@@ -24,7 +24,7 @@ public class SelectCameraScript : MonoBehaviour
         var position = transform.position;
         //カメラがプレイヤーに追従
         position.x = playerPosition.x;
-        position.y = playerPosition.y +1;
+        position.y = playerPosition.y + 1;
          position.z = playerPosition.z - 5;
         transform.position = position;
 

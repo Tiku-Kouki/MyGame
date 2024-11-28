@@ -11,7 +11,7 @@ public class WarpPoint : MonoBehaviour
     //@‚‚³
     float height = 3.0f;
     //@‚Ç‚ê‚­‚ç‚¢‚ÅˆÚ“®‚·‚é‚©
-    float fps = 60.0f;
+    const float fps = 60.0f;
 
     public AudioSource warpAudio;
 

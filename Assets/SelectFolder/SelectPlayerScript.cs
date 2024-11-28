@@ -14,6 +14,9 @@ public class SelectPlayerScript : MonoBehaviour
     // プレイヤーのRigidbody
     public Rigidbody rb;
 
+    //プレイヤーの移動速度
+    const float moveSpeed = 5.0f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,8 +36,7 @@ public class SelectPlayerScript : MonoBehaviour
         // ｚ軸方向の移動範囲制限
         pos.z = Mathf.Clamp(pos.z, -5.5f, 5.5f);
 
-        //プレイヤーの移動速度
-        float moveSpeed = 5.0f;
+        
 
        
         //ゲームパッドのスティック入力受け取り

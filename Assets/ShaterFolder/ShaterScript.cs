@@ -11,7 +11,7 @@ public class ShaterScript : MonoBehaviour
     //シャッターが開いているか
     public  static bool isShaterOpen = true;
     //しまった時間経過
-    public int closeTimer;
+    public int closeTimer = 0;
     //開閉のスピード
     public float speed = 0.01f;
     //最低位置
