@@ -8,7 +8,7 @@ public static class BuildApp
         //windows64のプラットフォームでアプリをビルドする
         BuildPipeline.BuildPlayer(
             new string[] { "Assets/Scenes/Stage1Scene.unity" },
-            "Builds/App/SampleApp.exe",
+            "Builds/App/アチコチラビリンス.exe",
             BuildTarget.StandaloneWindows64,
             BuildOptions.None
         );
