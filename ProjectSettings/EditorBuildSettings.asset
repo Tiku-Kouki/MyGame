@@ -13,14 +13,11 @@ EditorBuildSettings:
     guid: 5c3b18b2c5ba75b4eb532df3ebc81c5e
   - enabled: 1
     path: Assets/Scenes/Stage1Scene.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
+    guid: 4292df14693b4cd4386eeacf2990e700
   - enabled: 1
     path: Assets/Scenes/Stage2Scene.unity
     guid: ee9fdf7b6bd0eaf4fbc23a5ec48e59aa
   - enabled: 1
     path: Assets/Scenes/Stage3Scene.unity
     guid: 5db589c303f089246b9ef37385f6ddb9
-  - enabled: 1
-    path: Assets/Scenes/ReLoadScene.unity
-    guid: 4292df14693b4cd4386eeacf2990e700
   m_configObjects: {}

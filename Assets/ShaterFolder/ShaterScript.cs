@@ -13,11 +13,14 @@ public class ShaterScript : MonoBehaviour
     //しまった時間経過
     public int closeTimer = 0;
     //開閉のスピード
-    public float speed = 0.01f;
+    [SerializeField]
+    float speed = 0.01f;
     //最低位置
-    public float downPos;
+    [SerializeField]
+    float downPos;
     //最大位置
-    public float upPos;
+    [SerializeField]
+    float upPos;
 
     public static bool isUp;
 

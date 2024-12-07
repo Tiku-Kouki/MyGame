@@ -21,8 +21,8 @@ public class GameManagerScript : MonoBehaviour
     public ShaterScript shater;
     //ƒS[ƒ‹‚Å‚Ì‘Ò‹@ŠÔŒvZ
     private int time = 0;
-
-    public int BRankLine = 2, ARankLine = 4;
+    [SerializeField]
+    int BRankLine = 2, ARankLine = 4;
 
 
     private bool isPlayMusic = false;

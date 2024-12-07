@@ -22,6 +22,8 @@ public class PlayerScript : MonoBehaviour
     static float moveSpeed = 5.0f;
     //èâä˙ÇÃà íu
     Vector3 startPos;
+    private int life = 3;
+    private bool isDamage = false;
 
     public GameObject bombParticle;
 
@@ -33,8 +35,29 @@ public class PlayerScript : MonoBehaviour
         startPos = transform.position;
     }
 
-    
-    
+    private void OnTriggerEnter(Collider other)
+    {
+       
+        
+        if (other.gameObject.CompareTag("Nidle"))
+        {
+
+            if (isDamage)
+            {
+                return;
+            }
+
+
+            
+            life -= 1;
+            isDamage = false;
+
+
+        }
+
+
+    }
+
     //êGÇÍÇΩéû
     private void OnCollisionEnter(Collision other)
     {
