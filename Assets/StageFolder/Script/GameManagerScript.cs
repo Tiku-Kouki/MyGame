@@ -15,6 +15,7 @@ public class GameManagerScript : MonoBehaviour
     public TextMeshProUGUI scoreText;
     //得点の一定以上撮った時のランク
     public TextMeshProUGUI rankText;
+    
     //背景BGM
     public AudioSource mainAudio;
     //シャッター
@@ -29,6 +30,7 @@ public class GameManagerScript : MonoBehaviour
 
     public static bool eraseGoalText = false;
 
+    public RankScript rankScript;
     
 
     //public GameObject goalParticle;
@@ -73,7 +75,9 @@ public class GameManagerScript : MonoBehaviour
 
             time++;
 
-            if (time > 240)
+            
+
+            if (time > 240 && rankScript.isRankSet)
             {
                 if ((Input.GetKeyDown(KeyCode.Space) ||
                     Input.GetButtonDown("Jump"))&&
@@ -122,7 +126,7 @@ public class GameManagerScript : MonoBehaviour
             rank = "C";
         }
         //ランクと得点のそれぞれの表示
-        rankText.text = "RANK " + rank;
+        rankText.text = rank;
 
         scoreText.text = "SCORE " + score;
 
