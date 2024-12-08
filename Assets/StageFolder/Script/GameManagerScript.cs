@@ -30,7 +30,7 @@ public class GameManagerScript : MonoBehaviour
 
     public static bool eraseGoalText = false;
 
-    public RankScript rankScript;
+    public RankMoveScript rankScript;
     
 
     //public GameObject goalParticle;

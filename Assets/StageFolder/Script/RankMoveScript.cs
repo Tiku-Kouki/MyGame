@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class RankScript : MonoBehaviour
+public class RankMoveScript : MonoBehaviour
 {
     //“¾“_‚Ìˆê’èˆÈãB‚Á‚½‚Ìƒ‰ƒ“ƒN
     public TextMeshProUGUI rankText;

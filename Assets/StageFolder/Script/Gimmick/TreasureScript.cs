@@ -18,6 +18,7 @@ public class TreasureScript : MonoBehaviour
         //í‚É‰ñ“]
         transform.Rotate(0.5f, 0.0f, 0.0f);
 
+        
 
         
     }
