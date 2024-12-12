@@ -67,6 +67,8 @@ public class PlayerScript : MonoBehaviour
         {
             other.gameObject.SetActive(false);
 
+            GetComponent<Renderer>().material.color = Color.yellow;
+
             coinAudio.Play();
             //“¾“_‚É’Ç‰Á
             GameManagerScript.score += 1;
@@ -79,9 +81,13 @@ public class PlayerScript : MonoBehaviour
         if (other.gameObject.CompareTag("Ground"))
         {
             jumpCount = 0;
+            GetComponent<Renderer>().material.color = Color.white;
         }
 
-        
+        if (other.gameObject.CompareTag("warpPoint"))
+        {
+            GetComponent<Renderer>().material.color = Color.green;
+        }
 
 
     }

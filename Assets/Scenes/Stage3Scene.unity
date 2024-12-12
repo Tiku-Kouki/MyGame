@@ -15506,7 +15506,7 @@ MonoBehaviour:
   nowRank: {fileID: 651644273}
   endRankTextPos: {x: 900, y: 0, z: 0}
   endGoalRankPos: {x: 1200, y: 0, z: 0}
-  speed: 5
+  speed: 20
   isRankSet: 0
 --- !u!1001 &1292937101
 PrefabInstance:
