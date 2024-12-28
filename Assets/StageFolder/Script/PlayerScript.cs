@@ -6,6 +6,9 @@ using UnityEngine;
 //　stageのプレイヤーの動き
 
 
+
+
+
 public class PlayerScript : MonoBehaviour
 {
     //Rigidbody
@@ -24,8 +27,12 @@ public class PlayerScript : MonoBehaviour
     Vector3 startPos;
     private int life = 3;
     private bool isDamage = false;
+    private int damage = 1;
 
     public GameObject bombParticle;
+
+
+
 
 
     // Start is called before the first frame update
@@ -48,8 +55,8 @@ public class PlayerScript : MonoBehaviour
             }
 
 
-            
-            life -= 1;
+
+            life -= damage;
             isDamage = false;
 
 

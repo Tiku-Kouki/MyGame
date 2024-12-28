@@ -10,6 +10,7 @@ public class moveFloor : MonoBehaviour
     private Vector3 max;
     [SerializeField]
     private float speed;
+    private float backSpeed = -1;
     private float startSpeed;
     private Vector3 startPos;
 
@@ -47,7 +48,7 @@ public class moveFloor : MonoBehaviour
     {
         if(transform.position.x < startPos.x-min.x || transform.position.x > startPos.x + max.x)
         {
-            speed *= -1;
+            speed *= backSpeed;
         }
 
         Vector3 pos = transform.position;

@@ -15,6 +15,9 @@ public class SwitchScript : MonoBehaviour
     Vector3 startPos;
     //最大沈む位置
     float afterPosY;
+
+    float afterMinus = 0.1f;
+
     //　ドアと連携させる
     public DoorScript door;
 
@@ -23,7 +26,7 @@ public class SwitchScript : MonoBehaviour
     {
         startPos = transform.position;
 
-        afterPosY = startPos.y - 0.1f;
+        afterPosY = startPos.y - afterMinus;
     }
 
     

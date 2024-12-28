@@ -45,8 +45,10 @@ public class WarpPoint : MonoBehaviour
     //w’èˆÊ’u‚ÉŒÊ‚ğ•`‚¢‚ÄˆÚ“®‚·‚é
     public void StartThrow(GameObject target, float height, Vector3 start, Vector3 end, float duration)
     {
+        float halfToUse = 0.50f;
+
         // ’†“_‚ğ‹‚ß‚é
-        Vector3 half = end - start * 0.50f + start;
+        Vector3 half = end - start * halfToUse + start;
         half.y += Vector3.up.y + height;
 
         StartCoroutine(LerpThrow(target, start, half, end, duration));
