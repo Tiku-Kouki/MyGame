@@ -14,6 +14,7 @@ public class moveFloor : MonoBehaviour
     private float startSpeed;
     private Vector3 startPos;
 
+    
     private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.CompareTag("Player"))
