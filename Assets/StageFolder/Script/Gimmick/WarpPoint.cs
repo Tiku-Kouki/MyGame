@@ -7,10 +7,13 @@ using UnityEngine;
 public class WarpPoint : MonoBehaviour
 {
     // ˆÚ“®‚³‚¹‚éˆÊ’u
-    public Vector3 pos;
+    [SerializeField]
+    private Vector3 pos;
     //@‚‚³
-    float height = 3.0f;
+    [SerializeField]
+    private float height = 3.0f;
     //@‚Ç‚ê‚­‚ç‚¢‚ÅˆÚ“®‚·‚é‚©
+    [SerializeField]
     const float fps = 60.0f;
 
     public AudioSource warpAudio;

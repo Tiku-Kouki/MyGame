@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class moveFloor : MonoBehaviour
+public class moveFloor : FloorsScript
 {
     [SerializeField]
     private Vector3 min;
@@ -14,7 +14,29 @@ public class moveFloor : MonoBehaviour
     private float startSpeed;
     private Vector3 startPos;
 
-    
+
+    public override void Move()
+    {
+        if (transform.position.x < startPos.x - min.x || transform.position.x > startPos.x + max.x)
+        {
+            speed *= backSpeed;
+        }
+
+        Vector3 pos = transform.position;
+        if (StartScript.isStart)
+        {
+            pos.x += speed;
+        }
+
+
+
+        transform.position = pos;
+    }
+
+
+
+
+
     private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.CompareTag("Player"))
@@ -63,5 +85,5 @@ public class moveFloor : MonoBehaviour
         transform.position = pos;
     }
 
-
+    
 }

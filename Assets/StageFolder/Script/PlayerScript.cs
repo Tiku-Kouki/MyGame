@@ -44,8 +44,8 @@ public class PlayerScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-       
-        
+
+
         if (other.gameObject.CompareTag("Nidle"))
         {
 

@@ -17301,8 +17301,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 703f75e6a5d5cdc4eaad37f902616d95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gamePauseText: {fileID: 0}
-  selectText: {fileID: 0}
+  gamePauseText: {fileID: 2106650680}
+  selectText: {fileID: 1376387601}
 --- !u!4 &1088548728
 Transform:
   m_ObjectHideFlags: 0
