@@ -2,15 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+//動く床
 public class moveFloor : FloorsScript
 {
     [SerializeField]
-    private Vector3 min;
+    private Vector3 min;//
     [SerializeField]
-    private Vector3 max;
+    private Vector3 max;//
     [SerializeField]
-    private float speed;
-    private float backSpeed = -1;
+    private float speed;//動くスピード
+    private float backSpeed = -1;//スピードの反転に使うスクリプト
     private float startSpeed;
     private Vector3 startPos;
 
@@ -36,7 +38,7 @@ public class moveFloor : FloorsScript
 
 
 
-
+    // プレイヤーが触れているときにプレイヤーの親となる
     private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.CompareTag("Player"))
@@ -44,7 +46,7 @@ public class moveFloor : FloorsScript
             other.transform.SetParent(transform);
         }
     }
-
+    // プレイヤーが離れた時親子関係を解除する
     private void OnCollisionExit(Collision other)
     {
         if (other.gameObject.CompareTag("Player"))

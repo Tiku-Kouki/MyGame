@@ -5,7 +5,7 @@ using UnityEngine;
 
 
 
-
+//奥から押し出すスクリプト
 public class PushesOutScript : MonoBehaviour
 {
 
@@ -34,7 +34,7 @@ public class PushesOutScript : MonoBehaviour
     [SerializeField]
     private float fps = 60.0f;
 
-
+    //現在の状態
     private int mode = 0;
 
     private float distance_two;
@@ -90,9 +90,10 @@ public class PushesOutScript : MonoBehaviour
     void Update()
     {
         
-
+        //押し出しの状態変化
         switch (mode)
         {
+            //待機
             case 0:
 
                 time++;
@@ -107,6 +108,7 @@ public class PushesOutScript : MonoBehaviour
 
              break;
 
+            //押し出し
             case 1:
 
                 if (transform.position.z < pushPos.z)
@@ -119,6 +121,8 @@ public class PushesOutScript : MonoBehaviour
                     transform.position -= new Vector3(0, 0, speed);
                 }
                 break;
+
+            //元の位置に戻る
             case 2:
                 if (transform.position.z > startPos.z)
                 {
