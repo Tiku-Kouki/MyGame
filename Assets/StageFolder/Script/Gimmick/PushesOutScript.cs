@@ -83,6 +83,9 @@ public class PushesOutScript : MonoBehaviour
     void Start()
     {
         startPos = transform.position;
+        afterPlayerPos.x = startPos.x;
+        afterPlayerPos.y = startPos.y;
+
         distance_two = Vector3.Distance(transform.position, afterPlayerPos);
     }
 
@@ -95,9 +98,10 @@ public class PushesOutScript : MonoBehaviour
         {
             //‘Ò‹@
             case 0:
-
-                time++;
-
+                if (StartScript.isStart)
+                {
+                    time++;
+                }
                 if(time > waitTime)
                 {
 
