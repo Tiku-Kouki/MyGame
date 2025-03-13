@@ -94,9 +94,10 @@ public class GameOverScript : MonoBehaviour
                 
                 if (Input.GetKeyDown("joystick button 0") && !isBackSelect)
                 {
+                    isReset = true;
                     GameOverText.color = new Color(1.0f, 1.0f, 1.0f, 0.0f);
                     ShaterScript.isShaterOpen = false;
-                    isReset = true;
+                    
                     isSet = false;
                     
                 }
