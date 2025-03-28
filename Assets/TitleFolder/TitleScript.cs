@@ -9,8 +9,7 @@ public class TitleScript : MonoBehaviour
 {
     //　Aボタンを押すの表示オブジェクト
     public GameObject hitKey;
-    // シャッター
-    public ShaterScript shater;
+   
     //　hitKeyの点滅に使用
     private int timer = 0;
     //　ステージ移動時間の制限に使用

@@ -1172,7 +1172,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shater: {fileID: 1421468085}
   closeTimer: 0
-  speed: 10
+  speed: 20
   downPos: 540
   upPos: 1620
 --- !u!4 &828872362
