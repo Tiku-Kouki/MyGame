@@ -26,7 +26,7 @@ public class StartScript : MonoBehaviour
     //@Go‚ÌSE
     private bool isGoSE = false;
 
-
+    float sppedUp = 0;
 
 
     // Start is called before the first frame update
@@ -38,6 +38,7 @@ public class StartScript : MonoBehaviour
 
         GoText.color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
 
+        sppedUp = 0;
 
     }
 
@@ -72,7 +73,7 @@ public class StartScript : MonoBehaviour
 
         }
 
-        if (readyTime >= 120&& !isStart)
+        if (readyTime >= 60&& !isStart)
         {
             if (ReadyText.color.a > 0)
             {
@@ -80,7 +81,9 @@ public class StartScript : MonoBehaviour
 
             }
 
-            GoText.transform.position= GoText.transform.position - new Vector3(30.0f,0.0f,0.0f);
+            sppedUp++;
+
+            GoText.transform.position= GoText.transform.position - new Vector3(30.0f+ sppedUp, 0.0f,0.0f);
 
             
         }
