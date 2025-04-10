@@ -101,10 +101,29 @@ public class PushesOutScript : MonoBehaviour
                 if (StartScript.isStart)
                 {
                     time++;
+
+                    if (time > waitTime-20)
+                    {
+                        if (time % 2 == 0)
+                        {
+                            GetComponent<Renderer>().material.color = Color.white;
+                        }
+                        else
+                        {
+                            GetComponent<Renderer>().material.color = Color.red;
+                        }
+                        
+
+                    }
+
+                    
+
+
                 }
                 if(time > waitTime)
                 {
 
+                    GetComponent<Renderer>().material.color = Color.white;
                     mode = 1;
                     time = 0;
 
