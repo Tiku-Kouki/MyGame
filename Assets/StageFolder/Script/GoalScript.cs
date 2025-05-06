@@ -1,4 +1,5 @@
 using UnityEngine;
+
 //ゴールのスクリプト
 
 
@@ -12,6 +13,8 @@ public class GoalScript : MonoBehaviour
     public static bool isGameClear = false;
     //　ゴールした後の音
     public AudioSource goalAudio;
+    //　パーティクル
+    public GameObject starParticle;
 
 
 
@@ -49,6 +52,7 @@ public class GoalScript : MonoBehaviour
         {
             //テキスト表示
             doorInText.SetActive(true);
+            
 
             //　上入力をしたら
             if ((Input.GetKey(KeyCode.UpArrow)||
@@ -59,6 +63,7 @@ public class GoalScript : MonoBehaviour
                 goalAudio.Play();
                 gameClearText.SetActive(true);
                 isGameClear = true;
+                Instantiate(starParticle, starParticle.transform.position, Quaternion.identity);
             }
         }
     }

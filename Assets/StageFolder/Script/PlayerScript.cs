@@ -25,6 +25,7 @@ public class PlayerScript : MonoBehaviour
     static float moveSpeed = 5.0f;
     //初期の位置
     Vector3 startPos;
+    Quaternion startRote;
     private int life = 3;
     private bool isDamage = false;
     private int damage = 1;
@@ -40,6 +41,7 @@ public class PlayerScript : MonoBehaviour
     {
 
         startPos = transform.position;
+        startRote = transform.rotation;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -114,8 +116,10 @@ public class PlayerScript : MonoBehaviour
         //　positionの一時保存
         var pos = transform.position;
 
-       
-        
+        //Transform myTransform = transform.transform;
+
+        //transform.localScale= new Vector3(1.0f, 1.0f, 1.0f);
+
         //足元の位置確認に使用
         Vector3 rayPosition = transform.position + new Vector3(0.0f, 0.5f, 0.0f);
         Ray ray = new Ray(rayPosition, transform.up * -1);
@@ -186,16 +190,20 @@ public class PlayerScript : MonoBehaviour
             moveX > 0)
         {
             v.x = moveSpeed;
+
+             //myTransform.Rotate(0.0f, 0.0f, -1.0f);
         }
         else
         if (Input.GetKey(KeyCode.LeftArrow)||
             moveX < 0)
         {
             v.x = -moveSpeed;
+             //myTransform.Rotate(0.0f, 0.0f, 1.0f);
         }
         else
         {
             v.x = 0;
+            //transform.rotation = startRote;
         }
         //プレイヤー2回までジャンプ可能
         if ((Input.GetKeyDown(KeyCode.Space)||

@@ -3,7 +3,11 @@ guid: 075eda673a12b4d49b8f10875439b653
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - gameClearText: {instanceID: 0}
+  - doorInText: {instanceID: 0}
+  - goalAudio: {instanceID: 0}
+  - starParticle: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

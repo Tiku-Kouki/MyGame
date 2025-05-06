@@ -16,6 +16,7 @@ public class moveFloor : FloorsScript
     private float startSpeed;
     private Vector3 startPos;
 
+    
 
     public override void Move()
     {
@@ -41,9 +42,12 @@ public class moveFloor : FloorsScript
     // プレイヤーが触れているときにプレイヤーの親となる
     private void OnCollisionEnter(Collision other)
     {
+        
+
         if (other.gameObject.CompareTag("Player"))
         {
             other.transform.SetParent(transform);
+            
         }
     }
     // プレイヤーが離れた時親子関係を解除する
