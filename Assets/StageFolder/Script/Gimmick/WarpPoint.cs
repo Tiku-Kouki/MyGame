@@ -18,7 +18,13 @@ public class WarpPoint : MonoBehaviour
 
     public AudioSource warpAudio;
 
-    
+    [SerializeField]
+    private float roteSpeed = 3.0f;
+    private float radius ;
+
+    private float distance = 0.35f;
+
+    private float direction;
 
     // üŠÔ•âŠ®
     Vector3 CalcLerpPoint(Vector3 p0, Vector3 p1, Vector3 p2, float t)
@@ -42,6 +48,22 @@ public class WarpPoint : MonoBehaviour
             rate = diff / (duration / 60f);
             target.transform.position = CalcLerpPoint(start, half, end, rate);
 
+            radius = target.transform.localScale.x / 2f;
+            float angle = (distance / radius) * Mathf.Rad2Deg;
+            
+
+            //‰ñ“]‚³‚¹‚é
+            if (start.z < end.z)
+            {
+                direction = Mathf.Sign(-roteSpeed); // ¶‰E‚Å‰ñ“]•ûŒü‚ğ•Ï‚¦‚é
+                target.transform.Rotate(Vector3.left, angle * direction, Space.World);
+            }
+            else if (start.z > end.z)
+            {
+                direction = Mathf.Sign(roteSpeed); // ¶‰E‚Å‰ñ“]•ûŒü‚ğ•Ï‚¦‚é
+                target.transform.Rotate(Vector3.left, angle * direction, Space.World);
+            }
+
             yield return null;
         }
     }
@@ -53,8 +75,10 @@ public class WarpPoint : MonoBehaviour
         // ’†“_‚ğ‹‚ß‚é
         Vector3 half = end - start * halfToUse + start;
         half.y += Vector3.up.y + height;
+        
 
-        StartCoroutine(LerpThrow(target, start, half, end, duration));
+
+            StartCoroutine(LerpThrow(target, start, half, end, duration));
     }
 
     private void OnCollisionEnter(Collision other)

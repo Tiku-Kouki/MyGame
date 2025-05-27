@@ -31,9 +31,9 @@ public class PlayerScript : MonoBehaviour
     private int damage = 1;
 
     public GameObject bombParticle;
+    public GameObject PlayerParticle;
 
-
-
+    private float radius ;
 
 
     // Start is called before the first frame update
@@ -42,6 +42,9 @@ public class PlayerScript : MonoBehaviour
 
         startPos = transform.position;
         startRote = transform.rotation;
+        radius = transform.localScale.x / 2f;
+
+        
     }
 
     private void OnTriggerEnter(Collider other)
@@ -111,14 +114,17 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //足元の煙的なパーティクルをプレイヤーに追従させる
+        PlayerParticle.transform.position = new Vector3(transform.position.x,transform.position.y - 0.3f,transform.position.z);
+
         //　rbの一時保存
         Vector3 v = rb.velocity;
         //　positionの一時保存
         var pos = transform.position;
 
-        //Transform myTransform = transform.transform;
+        Transform myTransform = transform.transform;
 
-        //transform.localScale= new Vector3(1.0f, 1.0f, 1.0f);
+        transform.localScale= new Vector3(1.0f, 1.0f, 1.0f);
 
         //足元の位置確認に使用
         Vector3 rayPosition = transform.position + new Vector3(0.0f, 0.5f, 0.0f);
@@ -191,19 +197,25 @@ public class PlayerScript : MonoBehaviour
         {
             v.x = moveSpeed;
 
-             //myTransform.Rotate(0.0f, 0.0f, -1.0f);
+            float angle = (distance / radius) * Mathf.Rad2Deg;
+            float direction = Mathf.Sign(moveX); // 左右で回転方向を変える
+            //移動時に回転
+            transform.Rotate(Vector3.back, angle * direction, Space.World);
         }
         else
         if (Input.GetKey(KeyCode.LeftArrow)||
             moveX < 0)
         {
             v.x = -moveSpeed;
-             //myTransform.Rotate(0.0f, 0.0f, 1.0f);
+            float angle = (distance / radius) * Mathf.Rad2Deg;
+            float direction = Mathf.Sign(moveX); // 左右で回転方向を変える
+            //移動時に回転
+            transform.Rotate(Vector3.back, angle * direction, Space.World);
         }
         else
         {
             v.x = 0;
-            //transform.rotation = startRote;
+           // transform.rotation = startRote;
         }
         //プレイヤー2回までジャンプ可能
         if ((Input.GetKeyDown(KeyCode.Space)||
