@@ -9,6 +9,7 @@ TagManager:
   - Goal
   - Treasure
   - Nidle
+  - SelectFloor
   layers:
   - Default
   - TransparentFX

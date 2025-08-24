@@ -196,7 +196,6 @@ public class PlayerScript : MonoBehaviour
             moveX > 0)
         {
             v.x = moveSpeed;
-
             float angle = (distance / radius) * Mathf.Rad2Deg;
             float direction = Mathf.Sign(moveX); // ¶‰E‚Å‰ñ“]•ûŒü‚ğ•Ï‚¦‚é
             //ˆÚ“®‚É‰ñ“]
